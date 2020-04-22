@@ -5,7 +5,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 /**
- * <description>
+ * First simple example of a starter class
  * Created :  21.04.2020
  *
  * @author : Uwe Sauerbrei
@@ -13,16 +13,17 @@ import javafx.stage.Stage;
 public class HelloFx extends Application {
 
     @Override
-    public void start(Stage stage) {
+    public void start(Stage primaryStage) {
         String javaVersion = System.getProperty("java.version");
         String javafxVersion = System.getProperty("javafx.version");
         Label l = new Label("Hello, JavaFX " + javafxVersion + ", running on Java " + javaVersion + ".");
         Scene scene = new Scene(new StackPane(l), 640, 480);
-        stage.setScene(scene);
-        stage.show();
+        primaryStage.setTitle("My first (again) JavaFX Application");
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 
     public static void main(String[] args) {
-        launch();
+        Application.launch(args);
     }
 }
