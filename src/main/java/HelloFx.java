@@ -1,8 +1,10 @@
 import javafx.application.Application;
+import javafx.scene.Cursor;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * First simple example of a starter class
@@ -18,7 +20,14 @@ public class HelloFx extends Application {
         String javafxVersion = System.getProperty("javafx.version");
         Label l = new Label("Hello, JavaFX " + javafxVersion + ", running on Java " + javaVersion + ".");
         Scene scene = new Scene(new StackPane(l), 640, 480);
+        scene.setCursor(Cursor.CROSSHAIR);
         primaryStage.setTitle("My first (again) JavaFX Application");
+        primaryStage.setX(50);
+        primaryStage.setY(50);
+        primaryStage.initStyle(StageStyle.DECORATED);
+        //primaryStage.initStyle(StageStyle.TRANSPARENT);
+        // primaryStage.initStyle(StageStyle.UNIFIED);
+        // primaryStage.initStyle(StageStyle.UTILITY);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
