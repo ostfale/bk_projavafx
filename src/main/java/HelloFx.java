@@ -1,13 +1,13 @@
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.scene.Cursor;
+import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
@@ -23,33 +23,65 @@ public class HelloFx extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        String javaVersion = System.getProperty("java.version");
-        String javafxVersion = System.getProperty("javafx.version");
-        Label l = new Label("Hello, JavaFX " + javafxVersion + ", running on Java " + javaVersion + ".");
 
-        Text aText = new Text("Example for a text\nSecond Line");
-        aText.setFont(Font.font("Arial", FontWeight.BOLD, 36));
-        aText.setFill(Color.GOLD);
-        aText.setStroke(Color.GREEN);
+        primaryStage.setTitle("First FX Test Application!");
+        BorderPane borderPane = new BorderPane();
+        borderPane.setTop(createMenuBar());
 
-        FontIcon icon = new FontIcon(FontAwesomeSolid.COGS);
-        Button button = new Button("US Button");
-        button.setGraphic(icon);
 
-        Scene scene = new Scene(new StackPane(button), 800, 600);
+        Scene scene = new Scene(borderPane, 960, 600);
         scene.setCursor(Cursor.CROSSHAIR);
-        primaryStage.setTitle("My first (again) JavaFX Application");
+        primaryStage.setScene(scene);
+        primaryStage.initStyle(StageStyle.DECORATED);
         primaryStage.setX(50);
         primaryStage.setY(50);
-        primaryStage.initStyle(StageStyle.DECORATED);
-        //primaryStage.initStyle(StageStyle.TRANSPARENT);
-        // primaryStage.initStyle(StageStyle.UNIFIED);
-        // primaryStage.initStyle(StageStyle.UTILITY);
-        primaryStage.setScene(scene);
         primaryStage.show();
+
+
+//        Text aText = new Text("Example for a text\nSecond Line");
+//        aText.setFont(Font.font("Arial", FontWeight.BOLD, 36));
+//        aText.setFill(Color.GOLD);
+//        aText.setStroke(Color.GREEN);
+//
     }
 
     public static void main(String[] args) {
         Application.launch(args);
+    }
+
+    private Node createMenuBar() {
+        MenuBar menuBar = new MenuBar();
+
+        Menu appMenu = new Menu("App");
+        Menu helpMenu = new Menu("Help");
+
+        FontIcon openDoor = new FontIcon(FontAwesomeSolid.DOOR_OPEN);
+        MenuItem exitItem = new MenuItem("Exit");
+        exitItem.setGraphic(openDoor);
+        exitItem.setOnAction(e -> Platform.exit());
+        appMenu.getItems().add(exitItem);
+
+        FontIcon aboutIcon = new FontIcon(FontAwesomeSolid.QUESTION);
+        MenuItem aboutItem = new MenuItem("About");
+        aboutItem.setGraphic(aboutIcon);
+        aboutItem.setOnAction(e -> createAboutDialog().showAndWait());
+        helpMenu.getItems().add(aboutItem);
+
+
+        menuBar.getMenus().addAll(appMenu, helpMenu);
+        return menuBar;
+    }
+
+    private Alert createAboutDialog() {
+
+        String javaVersion = System.getProperty("java.version");
+        String javafxVersion = System.getProperty("javafx.version");
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Test Application About");
+        alert.setHeaderText("Shows some system information");
+        alert.setContentText("Java Version: " + javaVersion + "\nJavaFX Version: " + javafxVersion);
+
+        return alert;
     }
 }
