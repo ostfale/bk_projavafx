@@ -3,6 +3,10 @@ import javafx.scene.Cursor;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -19,7 +23,13 @@ public class HelloFx extends Application {
         String javaVersion = System.getProperty("java.version");
         String javafxVersion = System.getProperty("javafx.version");
         Label l = new Label("Hello, JavaFX " + javafxVersion + ", running on Java " + javaVersion + ".");
-        Scene scene = new Scene(new StackPane(l), 640, 480);
+
+        Text aText = new Text("Example for a text\nSecond Line");
+        aText.setFont(Font.font("Arial", FontWeight.BOLD, 36));
+        aText.setFill(Color.GOLD);
+        aText.setStroke(Color.GREEN);
+
+        Scene scene = new Scene(new StackPane(aText), 800, 600);
         scene.setCursor(Cursor.CROSSHAIR);
         primaryStage.setTitle("My first (again) JavaFX Application");
         primaryStage.setX(50);
