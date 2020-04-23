@@ -1,6 +1,7 @@
 import javafx.application.Application;
 import javafx.scene.Cursor;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -9,6 +10,8 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
+import org.kordamp.ikonli.javafx.FontIcon;
 
 /**
  * First simple example of a starter class
@@ -29,7 +32,11 @@ public class HelloFx extends Application {
         aText.setFill(Color.GOLD);
         aText.setStroke(Color.GREEN);
 
-        Scene scene = new Scene(new StackPane(aText), 800, 600);
+        FontIcon icon = new FontIcon(FontAwesomeSolid.COGS);
+        Button button = new Button("US Button");
+        button.setGraphic(icon);
+
+        Scene scene = new Scene(new StackPane(button), 800, 600);
         scene.setCursor(Cursor.CROSSHAIR);
         primaryStage.setTitle("My first (again) JavaFX Application");
         primaryStage.setX(50);
