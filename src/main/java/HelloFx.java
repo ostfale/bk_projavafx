@@ -1,12 +1,10 @@
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.geometry.Side;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -27,6 +25,7 @@ public class HelloFx extends Application {
         primaryStage.setTitle("First FX Test Application!");
         BorderPane borderPane = new BorderPane();
         borderPane.setTop(createMenuBar());
+        borderPane.setCenter(createTabPane());
 
 
         Scene scene = new Scene(borderPane, 960, 600);
@@ -70,6 +69,23 @@ public class HelloFx extends Application {
 
         menuBar.getMenus().addAll(appMenu, helpMenu);
         return menuBar;
+    }
+
+    private Node createTabPane() {
+        TabPane tabPane = new TabPane();
+        tabPane.setSide(Side.RIGHT);
+
+        Tab dashboard = new Tab("Dashboard");
+        dashboard.setClosable(false);
+
+        Tab csConfig = new Tab("CS Config");
+        csConfig.setClosable(false);
+
+        Tab csmsConfig = new Tab("CSMS Config");
+        csmsConfig.setClosable(false);
+
+        tabPane.getTabs().addAll(dashboard, csConfig, csmsConfig);
+        return tabPane;
     }
 
     private Alert createAboutDialog() {
