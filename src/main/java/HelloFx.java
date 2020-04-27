@@ -1,3 +1,4 @@
+import Status.StatusBarUi;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.geometry.Side;
@@ -26,6 +27,7 @@ public class HelloFx extends Application {
         BorderPane borderPane = new BorderPane();
         borderPane.setTop(createMenuBar());
         borderPane.setCenter(createTabPane());
+        borderPane.setBottom(new StatusBarUi().create());
 
 
         Scene scene = new Scene(borderPane, 960, 600);

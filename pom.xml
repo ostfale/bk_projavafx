@@ -90,7 +90,12 @@
             <artifactId>ikonli-fontawesome5-pack</artifactId>
             <version>11.4.0</version>
         </dependency>
-
+        <!-- https://mvnrepository.com/artifact/org.controlsfx/controlsfx -->
+        <dependency>
+            <groupId>org.controlsfx</groupId>
+            <artifactId>controlsfx</artifactId>
+            <version>11.0.1</version>
+        </dependency>
     </dependencies>
 
 </project>
