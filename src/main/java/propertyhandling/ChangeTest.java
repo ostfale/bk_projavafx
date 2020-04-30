@@ -1,4 +1,4 @@
-package propbinding;
+package propertyhandling;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
