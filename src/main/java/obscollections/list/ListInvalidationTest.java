@@ -1,4 +1,4 @@
-package obscollections;
+package obscollections.list;
 
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
