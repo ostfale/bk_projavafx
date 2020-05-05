@@ -17,7 +17,7 @@ public class MapChangeTest {
     public static void main(String[] args) {
 
         ObservableMap<String, Integer> changeMap = FXCollections.observableHashMap();
-        
+
         // Add an MapChangeListener to the changeMap
         changeMap.addListener(MapChangeTest::onChanged);
 
