@@ -37,13 +37,6 @@ public class HelloFx extends Application {
         primaryStage.setX(50);
         primaryStage.setY(50);
         primaryStage.show();
-
-
-//        Text aText = new Text("Example for a text\nSecond Line");
-//        aText.setFont(Font.font("Arial", FontWeight.BOLD, 36));
-//        aText.setFill(Color.GOLD);
-//        aText.setStroke(Color.GREEN);
-//
     }
 
     public static void main(String[] args) {
