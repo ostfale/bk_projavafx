@@ -14,6 +14,9 @@ import org.kordamp.ikonli.javafx.FontIcon;
 
 /**
  * First simple example of a starter class
+ * Use JVM Parameter<p>
+ *     <code>--module-path ${PATH_TO_FX} --add-modules=javafx.controls,javafx.fxml</code>
+ * </p>
  * Created :  21.04.2020
  *
  * @author : Uwe Sauerbrei
