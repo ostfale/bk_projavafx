@@ -40,7 +40,7 @@ public class VBoxVGrow extends Application {
                 "-fx-border-insets: 5;" +
                 "-fx-border-radius: 5;" +
                 "-fx-border-color: blue;");
-        
+
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("Using Vertical Grow Priority in a VBox");
