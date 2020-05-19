@@ -42,7 +42,7 @@ public class TilePaneTileAlignment extends Application {
                 new Button("aligned"),
                 new Button("at"),
                 new Button(tileAlignment.toString())};
-        
+
         TilePane tpane = new TilePane(5, 5, buttons);
         tpane.setTileAlignment(tileAlignment);
         tpane.setPrefColumns(3);
